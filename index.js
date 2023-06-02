@@ -36,7 +36,7 @@ function getMainHtmlText() {
                 </div>
             </section>`
     }
-    
+    console.log(matchMedia)
     return mainHtmlText
 }
 
