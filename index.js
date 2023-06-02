@@ -2,7 +2,7 @@ import { posts } from "./data.js"
 
 const mainEl = document.querySelector("main")
 
-renderMainHtml()
+// renderMainHtml()
 
 function renderMainHtml() {
     mainEl.innerHTML = getMainHtmlText()
