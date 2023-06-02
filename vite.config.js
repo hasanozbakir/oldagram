@@ -2,5 +2,10 @@ import {defineConfig} from 'vite'
 
 
 export default defineConfig({
-	plugins: []	
+	plugins: [
+		VitePluginSSR({
+		  prerender: true,
+		  includeAssetsImportedByServer: true
+		})
+	]	
 })
