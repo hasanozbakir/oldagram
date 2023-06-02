@@ -27,15 +27,18 @@ function renderMainHtml() {
         const imgAvatar = document.createElement("img")
         imgAvatar.setAttribute("class", "avatar")
         imgAvatar.setAttribute("src", avatar)
+        imgAvatar.setAttribute("alt", "")
         
         divPostUser.prepend(imgAvatar)
         
         const imgPostItem = document.createElement("img")
         imgPostItem.setAttribute("class", "post-item")
         imgPostItem.setAttribute("src", post)
+        imgPostItem.setAttribute("alt", "")
         const imgHeartIcon = document.createElement("img")
         imgHeartIcon.setAttribute("class", "icon")
         imgHeartIcon.setAttribute("src", heartUrl)
+        imgHeartIcon.setAttribute("alt", "")
 
         imgHeartIcon.addEventListener("click", (e) => {
             e.preventDefault()
@@ -52,9 +55,9 @@ function renderMainHtml() {
         })
 
         const imgCommentIcon = document.createElement("img")
-        imgCommentIcon.setAttribute("src", "images/icon-comment.png")
         imgCommentIcon.setAttribute("class", "icon")
-        
+        imgCommentIcon.setAttribute("src", "images/icon-comment.png")
+        imgCommentIcon.setAttribute("alt", "")
         const imgDMIcon = document.createElement("img")
         imgDMIcon.setAttribute("class", "icon")
         imgDMIcon.setAttribute("src", "images/icon-dm.png")
