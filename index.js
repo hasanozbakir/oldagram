@@ -21,10 +21,10 @@ function getMainHtmlText() {
         mainHtmlText += `
             <section>
                 <div class="post-user-info-wrapper container">
-                    <img class="avatar" src=../${ avatar }>
+                    <img class="avatar" src="../${ avatar }">
                     <p>${ name }<span class="text">${ location }</span></p>
                 </div>
-                <img class="post-item" src=./${ post }> 
+                <img class="post-item" src="./${ post }"> 
                 <div class="post-info-wrapper container">
                     <div class="icon-wrapper">
                         <img id=${ username } class="icon" src=${ heartUrl } >
