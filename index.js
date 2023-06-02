@@ -1,4 +1,5 @@
 import { posts } from "./data.js"
+import imgUrl from './img.png'
 
 const mainEl = document.querySelector("main")
 

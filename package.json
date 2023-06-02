@@ -2,8 +2,6 @@
   "name": "project",
   "dependencies": {},
   "devDependencies": {
-    "file-loader": "^4.2.0",
-    "html-loader": "^0.5.5",
     "vite": "latest"
   },
   "scripts": {
