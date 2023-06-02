@@ -13,11 +13,11 @@ function renderMainHtml() {
         const heartUrl = isLiked ? "images/icon-heart-filled.png": "images/icon-heart.png"
 
         const section = document.createElement("section")
-        const divPostUser = document.createElement("section")
+        const divPostUser = document.createElement("div")
         divPostUser.setAttribute("class", "post-user-info-wrapper container")
         divPostUser.innerHTML = `<p>${ name }<span class="text">${ location }</span></p>`
 
-        const divPostInfo = document.createElement("section")
+        const divPostInfo = document.createElement("div")
         divPostInfo.setAttribute("class", "post-info-wrapper container")
         divPostInfo.innerHTML = `<p class="post-info-text">${ likes.toLocaleString().replace('.',',') } likes</p>
                                 <p class="post-info-text">${ username } <span class="post-info-light-text">${ comment }</span></p>`
