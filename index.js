@@ -21,15 +21,15 @@ function getMainHtmlText() {
         mainHtmlText += `
             <section>
                 <div class="post-user-info-wrapper container">
-                    <img class="avatar" src=${ String(avatar) }>
+                    <img class="avatar" src=${ avatar }>
                     <p>${ name }<span class="text">${ location }</span></p>
                 </div>
-                <img class="post-item" src="./${ post }"> 
+                <img class="post-item" src=${ post }> 
                 <div class="post-info-wrapper container">
                     <div class="icon-wrapper">
                         <img id=${ username } class="icon" src=${ heartUrl } >
-                        <img class="icon" src="/images/icon-comment.png" >
-                        <img class="icon" src="../images/icon-dm.png" >
+                        <img class="icon" src="images/icon-comment.png" >
+                        <img class="icon" src="images/icon-dm.png" >
                     </div>
                     <p class="post-info-text">${ likes.toLocaleString().replace('.',',') } likes</p>
                     <p class="post-info-text">${ username } <span class="post-info-light-text">${ comment }</span></p>
