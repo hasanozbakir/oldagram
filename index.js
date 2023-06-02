@@ -5,81 +5,73 @@ const mainEl = document.querySelector("main")
 renderMainHtml()
 
 function renderMainHtml() {
-    mainEl.innerHTML = getMainHtmlText()
+    mainEl.innerHTML = ""
 
-    addOnClickEventListener()
-        
-}
-
-function getMainHtmlText() {
-    let mainHtmlText = "" 
-    
     for(let i=0; i < posts.length; i++) {
         const currentPost = posts[i]       
-        const { name, username, location, avatar, post, comment, isLiked, likes } = currentPost 
-        // const heartUrl = isLiked ? "images/icon-heart-filled.png": "images/icon-heart.png"
-        
-        mainHtmlText += `
-            <section>
-                <div class="post-user-info-wrapper container">
-                    <img class="avatar ${username}" >
-                    <p>${ name }<span class="text">${ location }</span></p>
-                </div>
-                <img class="post-item ${username}" > 
-                <div class="post-info-wrapper container">
-                    <div class="icon-wrapper">
-                        <img id=${ username } class="icon" >
-                        <img class="icon ${username}" >
-                        <img class="icon ${username}" >
-                    </div>
-                    <p class="post-info-text">${ likes.toLocaleString().replace('.',',') } likes</p>
-                    <p class="post-info-text">${ username } <span class="post-info-light-text">${ comment }</span></p>
-                </div>
-            </section>`
-    }
-  
-    return mainHtmlText
-}
-
-function addOnClickEventListener() {
-    for(let i=0; i < posts.length; i++) {
-        const currentPost = posts[i]
-        const { username, avatar, post, isLiked } = currentPost
-
+        let { name, username, location, avatar, post, comment, isLiked, likes } = currentPost 
         const heartUrl = isLiked ? "images/icon-heart-filled.png": "images/icon-heart.png"
-        
-        document.getElementById(username).addEventListener("click", changeLikes)
-        document.querySelector(`img.avatar.${username}`).setAttribute("src", avatar)
-        document.querySelector(`img.post-item.${username}`).setAttribute("src", post)
-        document.getElementById(username).setAttribute("src",  heartUrl)
-        document.querySelectorAll(`img.icon.${username}`)[0].setAttribute("src", "images/icon-comment.png")
-        document.querySelectorAll(`img.icon.${username}`)[1].setAttribute("src", "images/icon-dm.png")
 
-        console.log(document.querySelector(`img.avatar.${username}`))
-        console.log(document.querySelectorAll(`img.icon.${username}`)[0])
-        console.log(document.querySelectorAll(`img.icon.${username}`)[1])
-        
-    }
-}
+        const section = document.createElement("section")
+        const divPostUser = document.createElement("section")
+        divPostUser.setAttribute("class", "post-user-info-wrapper container")
+        divPostUser.innerHTML = `<p>${ name }<span class="text">${ location }</span></p>`
 
-function changeLikes(e) {
-    e.preventDefault()
-    
-    for(let i=0; i < posts.length; i++) {
-        let currentPost = posts[i]
-        const { username, isLiked, likes } = currentPost
+        const divPostInfo = document.createElement("section")
+        divPostInfo.setAttribute("class", "post-info-wrapper container")
+        divPostInfo.innerHTML = `<p class="post-info-text">${ likes.toLocaleString().replace('.',',') } likes</p>
+                                <p class="post-info-text">${ username } <span class="post-info-light-text">${ comment }</span></p>`
+
+        const divIconWrapper = document.createElement("div")
+        divIconWrapper.setAttribute("class", "icon-wrapper")
+        const imgAvatar = document.createElement("img")
+        imgAvatar.setAttribute("class", "avatar")
+        imgAvatar.setAttribute("src", avatar)
         
-        if( e.target.id == username ) {
+        divPostUser.prepend(imgAvatar)
+        
+        const imgPostItem = document.createElement("img")
+        imgPostItem.setAttribute("class", "post-item")
+        imgPostItem.setAttribute("src", post)
+        const imgHeartIcon = document.createElement("img")
+        imgHeartIcon.setAttribute("class", "icon")
+        imgHeartIcon.setAttribute("src", heartUrl)
+
+        imgHeartIcon.addEventListener("click", (e) => {
+            e.preventDefault()
+
             currentPost.isLiked = !isLiked
+            
             if( isLiked ) {
                 currentPost.likes--
             } else {
                 currentPost.likes++
             }
             renderMainHtml()
-            return
-        }
+        
+        })
+
+        const imgCommentIcon = document.createElement("img")
+        imgCommentIcon.setAttribute("class", "icon")
+        imgCommentIcon.setAttribute("src", "images/icon-comment.png")
+        const imgDMIcon = document.createElement("img")
+        imgDMIcon.setAttribute("class", "icon")
+        imgDMIcon.setAttribute("src", "images/icon-dm.png")
+
+        divIconWrapper.append(imgHeartIcon)
+        divIconWrapper.append(imgCommentIcon)
+        divIconWrapper.append(imgDMIcon)
+
+        divPostInfo.prepend(divIconWrapper)
+
+        section.append(divPostUser)
+        section.append(imgPostItem)
+        section.append(divPostInfo)
+
+        mainEl.append(section)
     }
-    
+
 }
+
+
 
