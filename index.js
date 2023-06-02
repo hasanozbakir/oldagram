@@ -58,6 +58,7 @@ function renderMainHtml() {
         const imgDMIcon = document.createElement("img")
         imgDMIcon.setAttribute("class", "icon")
         imgDMIcon.setAttribute("src", "images/icon-dm.png")
+        imgDMIcon.setAttribute("alt", "")
 
         divIconWrapper.append(imgHeartIcon)
         divIconWrapper.append(imgCommentIcon)
