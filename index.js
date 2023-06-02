@@ -26,7 +26,8 @@ function renderMainHtml() {
         divIconWrapper.setAttribute("class", "icon-wrapper")
         const imgAvatar = document.createElement("img")
         imgAvatar.setAttribute("class", "avatar")
-        imgAvatar.setAttribute("src", avatar)
+        // imgAvatar.setAttribute("src", avatar)
+        imgAvatar.src = avatar
         imgAvatar.setAttribute("alt", "")
         
         divPostUser.prepend(imgAvatar)
