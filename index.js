@@ -52,8 +52,9 @@ function renderMainHtml() {
         })
 
         const imgCommentIcon = document.createElement("img")
-        imgCommentIcon.setAttribute("class", "icon")
         imgCommentIcon.setAttribute("src", "images/icon-comment.png")
+        imgCommentIcon.setAttribute("class", "icon")
+        
         const imgDMIcon = document.createElement("img")
         imgDMIcon.setAttribute("class", "icon")
         imgDMIcon.setAttribute("src", "images/icon-dm.png")
